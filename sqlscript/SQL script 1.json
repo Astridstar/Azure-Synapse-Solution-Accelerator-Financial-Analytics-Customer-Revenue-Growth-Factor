@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "\nSELECT TOP 100 * \nFROM OPENROWSET(\n        BULK 'https://synbsxdexz4eghw5a.blob.core.windows.net/rawdata/local-data/person.csv',\n        FORMAT='CSV'\n    ) AS [persons]\n\n\nSELECT \n    TOP 100 *\nFROM OPENROWSET(\n    BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',\n    FORMAT='PARQUET'\n) AS [result]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
